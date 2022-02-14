@@ -28,8 +28,8 @@ const Exam = new Schema(
             type: Number
         },
         keyFindings: {
-            type: String,
-            required: true
+            type: String//,
+            //required: true
         },
         pngFilename: {
             type: String,
