@@ -36,7 +36,11 @@ Wondering how to get this thing working? Well, do we have the READMEs for you!
 
 Patterns for the REST API:
 <p><b>patients</b> collection CRUD operations:</p>
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> edc80336e95fc5f4b79b448ae2fa14abd1e38f17
 - "GET http://\<host\>:\<port\>/api/patients" <-- gets all patients
 - "GET http://\<host\>:\<port\>/api/patients/\<id\>" <-- gets patient with given id
 - "POST http://\<host\>:\<port\>/api/patients" \<-- inserts a new defined patient into the collection
@@ -44,7 +48,11 @@ Patterns for the REST API:
 - "DELETE http://\<host\>:\<port\>/api/patients/\<id\>" <-- deletes the patient with the corresponding id
 
 <p><b>exams</b> collection CRUD operations:</p>
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> edc80336e95fc5f4b79b448ae2fa14abd1e38f17
 - "GET http://\<host\>:\<port\>/api/exams" <-- gets all exams
 - "GET http://\<host\>:\<port\>/api/patients/\<id\>/exams" <-- returns all the exams that correspond to the given patient's id
 - "GET http://\<host\>:\<port\>/api/exams" <-- gets an exam with a specific id

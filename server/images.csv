@@ -1,4 +1,4 @@
-patientId,daysToImgStudy,hoursToImgStudy,imgDescription,studyModality,oxygenAtImgStudy,keyFindings,pngFilename,examId
+patientId,daysToImgStudy,hoursToImgStudy,imgDescription,studyModality,oxygenAtImgStudy,keyFindings,pngFilename,_id
 COVID-19-AR-16434409,0,15,XR CHEST AP PORTABLE,DX,,Subtle patchy bibasilar and right upper lobe airspace  opacities,COVID-19-AR-16434409_XR_CHEST_AP_PORTABLE_1.png,Exam-1
 COVID-19-AR-16434381,0,18,XR CHEST AP PORTABLE,DX,,Streaky opacities in bilateral mid and left lower lung.  Patchy opacities  in the right lower lung.  No pleural effusion.  ,COVID-19-AR-16434381_XR_CHEST_AP_PORTABLE_2.png,Exam-1
 COVID-19-AR-16434381,2,56,XR CHEST AP ONLY,DX,,Lung volumes remain low but there appears to have been clearing since  prior radiograph,COVID-19-AR-16434381_XR_CHEST_AP_ONLY_1.png,Exam-2
