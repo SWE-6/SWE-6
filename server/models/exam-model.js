@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 
 const Exam = new Schema(
     {
+      _id: {
+          type: Number,
+          required: true
+      },
         patientId: {
             type: String,
             required: true
@@ -33,10 +37,6 @@ const Exam = new Schema(
         },
         pngFilename: {
             type: String,
-            required: true
-        },
-        examId: {
-            type: Number,
             required: true
         }
     }
