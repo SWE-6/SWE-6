@@ -1,7 +1,7 @@
 /* eslint-disable no-undef, arrow-body-style */
 //const Item = require('../models/item-model'); //from the template, deprecated
 const patients = require("../models/patient-model.js");
-const images = require("../models/exam-model.js");
+const exams = require("../models/exam-model.js");
 //NOTE:requiring express-async-handeler for eassy error handeling of async functions
 const asyncHandler = require("express-async-handler");
 
@@ -51,48 +51,50 @@ deletePatient = asyncHandler( async (req, res) => {
     rest.status(400);
     throw new Error("Patient not found");
   }
-  
+
   await patients.findOneAndDelete({_id: req.params.id}); //Did work
 
   res.status(200).json({_id: req.params["id"]}); //just return the id back
   //res.status(200).json(patient);
 });
 
-//CONTROLLERS for the images:
+//CONTROLLERS for the exams:
 
-/**@desc gets all the images
+/**@desc gets all the exams
 */
-getImages = asyncHandler( async (req, res) => {
-  const allImages = await images.find({}); //passed empty object returns all member of the set
-  res.status(200).json(allImages);
+//FIXME: returns null for some reason
+getExams = asyncHandler( async (req, res) => {
+  const allExams = await exams.find({}); //passed empty object returns all member of the set
+  res.status(200).json(allExams); //FIXME: change name to allExams
 });
 
 //
-/**@desc gets images of the corresponding patians by ID.
+/**@desc gets exams of the corresponding patians by ID.
 */
-getImagesByID = asyncHandler( async (req, res) =>
+//FIXME: returns null for some reason
+getExamsByID = asyncHandler( async (req, res) => //FIXME: change name to getExamsByID
 {
-  const imageOfPatient = await images.find({patientID: req.params["id"]});
+  const examOfPatient = await exams.find({patientID: req.params["id"]});
 
-  if (!imageOfPatient) //error handeling
+  if (!examOfPatient) //error handeling
   {
     res.status(400);
-    throw new Error("Image not found"); //throws error and breaks away from function
+    throw new Error("Exam not found"); //throws error and breaks away from function
   }
 
-  res.status(200).json(imageOfPatient);
+  res.status(200).json(examOfPatient);
 });
 
-/**@desc gets an image from a patient using a provided ID and index.
+/**@desc gets an exam from a patient using a provided ID and index.
 */
-getImageByIndex = asyncHandler( async (req, res) =>
+getExamByIndex = asyncHandler( async (req, res) =>
 {
-  res.status(400).json( {message: "getImageByIndex called successfully"} );
+  res.status(400).json( {message: "getExamByIndex called successfully"} );
 });
 
-/**@desc creates a new image for a given patient by ID
+/**@desc creates a new exam for a given patient by ID
 */
-createImage = asyncHandler( async (req, res) =>
+createExam = asyncHandler( async (req, res) =>
 {
   const body = req.body;
   if (!body) //exception hadeling for body
@@ -100,23 +102,23 @@ createImage = asyncHandler( async (req, res) =>
     res.status(400);
     throw new Error("Please, define a body");
   }
-  const newImage = await images.create(body);
+  const newExam = await exams.create(body);
 
-  res.status(200).json(newImage);
+  res.status(200).json(newExam);
 });
 
-/**@desc updates an image from a patient using a provided ID and index
+/**@desc updates an exam from a patient using a provided ID and index
 */
-updateImage = asyncHandler( async (req, res) =>
+updateExam = asyncHandler( async (req, res) =>
 {
-  res.status(200).json( {message: "updateImage called successfully"} );
+  res.status(200).json( {message: "updateExam called successfully"} );
 });
 
-/**@desc deletes an image from a patient using a provided ID and index
+/**@desc deletes an exam from a patient using a provided ID and index
 */
-deleteImage = asyncHandler( async (req, res) =>
+deleteExam = asyncHandler( async (req, res) =>
 {
-  res.status(200).json( {message: "deleteImage called successfully"} );
+  res.status(200).json( {message: "deleteExam called successfully"} );
 });
 
 module.exports = {
@@ -125,10 +127,10 @@ module.exports = {
   createPatient,
   updatePatient,
   deletePatient,
-  getImages,
-  getImagesByID,
-  getImageByIndex,
-  createImage,
-  updateImage,
-  deleteImage,
+  getExams,
+  getExamsByID,
+  getExamByIndex,
+  createExam,
+  updateExam,
+  deleteExam,
 };

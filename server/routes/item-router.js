@@ -10,12 +10,12 @@ router.get('/patients/:id', ItemController.getPatientByID);
 router.post('/patients/', ItemController.createPatient);
 router.put('/patients/:id', ItemController.updatePatient);
 router.delete('/patients/:id', ItemController.deletePatient);
-//rouers for images
-router.get("/patients/images/", ItemController.getImages);
-router.get("/patients/:id/images/", ItemController.getImagesByID);
-router.get("/patients/:id/images/:id2", ItemController.getImageByIndex);
-router.post("/patients/images/", ItemController.createImage);
-router.put("/patients/:id/images/:id2", ItemController.updateImage);
-router.delete("/patients/:id/images/:id2", ItemController.deleteImage);
+//rouers for exams
+router.get("/patients/exams/", ItemController.getImages);
+router.get("/patients/:id/exams/", ItemController.getImagesByID);
+router.get("/patients/:id/exams/:id2", ItemController.getImageByIndex);
+router.post("/patients/exams/", ItemController.createImage);
+router.put("/patients/:id/exams/:id2", ItemController.updateImage);
+router.delete("/patients/:id/exams/:id2", ItemController.deleteImage);
 
 module.exports = router;
