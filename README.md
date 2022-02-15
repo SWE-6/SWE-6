@@ -32,7 +32,22 @@ Wondering how to get this thing working? Well, do we have the READMEs for you!
 
 ## FAQ
 
-**What is the MERN stack?**
+**Use of the API?**
 
-MERN stands for MongoDB, Express, React, Node which are the technologies
-used in this template.
+Patterns for the REST API:
+<p><b>patients</b> collection CRUD operations:</p>
+  
+- "GET http://\<host\>:\<port\>/api/patients" <-- gets all patients
+- "GET http://\<host\>:\<port\>/api/patients/\<id\>" <-- gets patient with given id
+- "POST http://\<host\>:\<port\>/api/patients" \<-- inserts a new defined patient into the collection
+- "PUT http://\<host\>:\<port\>/api/patients/\<id\>" <-- updates the patient that corresponds to the given id
+- "DELETE http://\<host\>:\<port\>/api/patients/\<id\>" <-- deletes the patient with the corresponding id
+
+<p><b>exams</b> collection CRUD operations:</p>
+  
+- "GET http://\<host\>:\<port\>/api/exams" <-- gets all exams
+- "GET http://\<host\>:\<port\>/api/patients/\<id\>/exams" <-- returns all the exams that correspond to the given patient's id
+- "GET http://\<host\>:\<port\>/api/exams" <-- gets an exam with a specific id
+- "POST http://\<host\>:\<port\>/api/exams" <-- inserts a new defined exam into the collection
+- "PUT http://\<host\>:\<port\>/api//\<id\>" <-- updates the exam that corresponds to the given id
+- "DELETE http://\<host\>:\<port\>/api/exams/\<id\>" <-- deletes the exam with the corresponding id
