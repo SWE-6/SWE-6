@@ -87,6 +87,7 @@ getExamsByID = asyncHandler( async (req, res) => //FIXME: change name to getExam
 
 /**@desc gets an exam from a patient using a provided ID and index.
 */
+//FIXME: is just a template as of now
 getExamByIndex = asyncHandler( async (req, res) =>
 {
   res.status(400).json( {message: "getExamByIndex called successfully"} );
@@ -109,6 +110,7 @@ createExam = asyncHandler( async (req, res) =>
 
 /**@desc updates an exam from a patient using a provided ID and index
 */
+//FIXME: is just a template as of now
 updateExam = asyncHandler( async (req, res) =>
 {
   res.status(200).json( {message: "updateExam called successfully"} );
@@ -116,6 +118,7 @@ updateExam = asyncHandler( async (req, res) =>
 
 /**@desc deletes an exam from a patient using a provided ID and index
 */
+//FIXME: is just a template as of now
 deleteExam = asyncHandler( async (req, res) =>
 {
   res.status(200).json( {message: "deleteExam called successfully"} );

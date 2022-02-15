@@ -11,11 +11,11 @@ router.post('/patients/', ItemController.createPatient);
 router.put('/patients/:id', ItemController.updatePatient);
 router.delete('/patients/:id', ItemController.deletePatient);
 //rouers for exams
-router.get("/patients/exams/", ItemController.getImages);
-router.get("/patients/:id/exams/", ItemController.getImagesByID);
-router.get("/patients/:id/exams/:id2", ItemController.getImageByIndex);
-router.post("/patients/exams/", ItemController.createImage);
-router.put("/patients/:id/exams/:id2", ItemController.updateImage);
-router.delete("/patients/:id/exams/:id2", ItemController.deleteImage);
+router.get("/patients/exams/", ItemController.getExams);
+router.get("/patients/:id/exams/", ItemController.getExamsByID);
+router.get("/patients/:id/exams/:id2", ItemController.getExamByIndex);
+router.post("/patients/exams/", ItemController.createExam);
+router.put("/patients/:id/exams/:id2", ItemController.updateExam);
+router.delete("/patients/:id/exams/:id2", ItemController.deleteExam);
 
 module.exports = router;
