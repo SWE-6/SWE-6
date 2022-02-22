@@ -49,7 +49,7 @@ const getPatientByID = async (id) =>
     console.error(e);
     return Promise.reject();
   }*/
-
+  //FIXME: retursn empty json?
   let patient = api.get("/patients/"+id).then(
     (r) =>
     {
