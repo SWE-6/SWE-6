@@ -50,7 +50,7 @@ const getPatientByID = async (id) =>
     return Promise.reject();
   }*/
 
-  /*let patient = api.get("/patients/"+id).then(
+  let patient = api.get("/patients/"+id).then(
     (r) =>
     {
       let info = r.data;
@@ -60,14 +60,26 @@ const getPatientByID = async (id) =>
     (e) => { console.log(e); }
   );
 
-  return patient;*/
+  return patient;
 
   //FIXME: returns empty json object aswell?
-  fetch("/patients/"+id).then(
+  /*fetch("/patients/"+id).then(
     (r) => { return r.json(); } //r stands for response
   ).catch(
     (e) => { console.error(e); }
-  );
+  );*/
+};
+
+const insertPatient = (payload) =>
+{
+  try
+  {
+    api.post("/patients", payload);
+  }
+  catch (e)
+  {
+    console.error(e);
+  }
 };
 
 const apis = {
@@ -78,7 +90,8 @@ const apis = {
   deleteItemById,
   //API for patients
   getPatients,
-  getPatientByID
+  getPatientByID,
+  insertPatient
 };
 
 export default apis;

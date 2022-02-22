@@ -71,12 +71,28 @@ class Items extends Component {
       </Switch>
     );
 
-    //FIXME: delete this, is just to test API GET a patient
+    //FIXME: delete this, is just to test API GET and POST a patient
     //const patient = localGetPatientTest("COVID-19-AR-16445144");
     const patient = apis.getPatientByID("COVID-19-AR-16434381"); //obtain patient by ID
     //const patient = {name:"Pedro",age:"27"};
     console.log(JSON.stringify(patient)); //convert to string and print to console
-
+    const patient2 =
+    {
+      "_id": "123456789",
+      "age": 100,
+      "sex": "P",
+      "race": "Martian",
+      "zip": "118631",
+      "bmi": 40,
+      "weight": 200,
+      "height": "7",
+      "numOfIcuAdmits": 128,
+      "mortality": "T",
+      "tuberculosis": "N",
+      "measles": "N"
+  }
+  //apis.insertPatient(patient2); //Testing inserting new patient, it works
+  //Testing ends here
     return (
       <>
         <LinksGridContainer>
