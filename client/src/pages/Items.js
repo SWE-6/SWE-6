@@ -9,6 +9,9 @@ import styled from 'styled-components';
 
 import { ItemsList, ItemsPlain, ItemsTable } from '../pages';
 
+//FIXME: importing apis to test getting a patient on this page
+import apis from "../api";
+
 const LinksGridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(10, 1fr [col-start]);
@@ -46,7 +49,18 @@ const itemsPageVariants = [
   },
 ];
 
+//FIXME: Testing getting a patient. Must be deleted
+const localGetPatientTest = (id) =>
+{
+  fetch("/patients/"+id).then(
+    (r) => { return r.json(); } //r stands for response
+  ).catch(
+    (e) => { console.error(e); }
+  );
+};
+
 class Items extends Component {
+
   render() {
     // TODO: would be better to dynamically create the routes based on page variations
     const itemsPages = (
@@ -56,6 +70,12 @@ class Items extends Component {
         <Route exact path={`${routes.ITEMS}/items-plain`} component={ItemsPlain} />
       </Switch>
     );
+
+    //FIXME: delete this, is just to test API GET a patient
+    //const patient = localGetPatientTest("COVID-19-AR-16445144");
+    const patient = apis.getPatientByID("COVID-19-AR-16434381"); //obtain patient by ID
+    //const patient = {name:"Pedro",age:"27"};
+    console.log(JSON.stringify(patient)); //convert to string and print to console
 
     return (
       <>
