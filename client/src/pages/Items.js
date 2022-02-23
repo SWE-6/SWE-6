@@ -49,16 +49,6 @@ const itemsPageVariants = [
   },
 ];
 
-//FIXME: Testing getting a patient. Must be deleted
-const localGetPatientTest = (id) =>
-{
-  fetch("/patients/"+id).then(
-    (r) => { return r.json(); } //r stands for response
-  ).catch(
-    (e) => { console.error(e); }
-  );
-};
-
 class Items extends Component {
 
   render() {
@@ -71,12 +61,8 @@ class Items extends Component {
       </Switch>
     );
 
-    //FIXME: delete this, is just to test API GET and POST a patient
-    //const patient = localGetPatientTest("COVID-19-AR-16445144");
-
-    //const patient = {name:"Pedro",age:"27"};
-    // console.log(JSON.stringify(patient)); //convert to string and print to console
-    const patient = apis.getPatientByID("COVID-19-AR-16434381"); //obtain patient by ID
+    //FIXME: Just for testing the api, delete this.
+    //apis.getPatientByID("COVID-19-AR-16434381"); //obtain patient by ID
     const patient2 =
     {
       "_id": "123456789",
@@ -92,9 +78,28 @@ class Items extends Component {
       "tuberculosis": "N",
       "measles": "N"
   }
-  const allPatients = apis.getPatients()
+  const examTest =
+  {
+    "_id": "Exam-100",
+    "patientId": "COVID-19-AR-16434409",
+    "daysToImgStudy": 100,
+    "hoursToImgStudy": 100,
+    "imgDescription": "XR CHEST AP PORTABLE",
+    "studyModality": "DX",
+    "keyFindings": "This patient does not exist and the image belongs to another patient",
+    "pngFilename": "COVID-19-AR-16434409_XR_CHEST_AP_PORTABLE_1.png"
+    }
+  //apis.getPatients() //Testing getting all patients
   //apis.insertPatient(patient2); //Testing inserting new patient, it works
-  //Testing ends here
+  //apis.updatePatient("123456789", {sex: "I"}); //Testing updating patient
+  //apis.deletePatient("123456789"); //testing deleting patient
+  //apis.getExams({}); //Testing getting all Exams
+  //apis.getExamsOfPatient("COVID-19-AR-16434381"); //Testing getting exams by patient
+  //apis.insertExam(examTest); //Testing insert a new exam
+  //apis.updateExam("Exam-100", {"hoursToImgStudy": 200}); //Testing updating an exam
+  //apis.deleteExam("Exam-100"); //Testing deleting a specific exam
+  //NOTE: Testing ends here
+
     return (
       <>
         <LinksGridContainer>
