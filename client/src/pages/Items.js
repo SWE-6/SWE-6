@@ -9,6 +9,9 @@ import styled from 'styled-components';
 
 import { ItemsList, ItemsPlain, ItemsTable } from '../pages';
 
+//FIXME: importing apis to test getting a patient on this page
+import apis from "../api";
+
 const LinksGridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(10, 1fr [col-start]);
@@ -47,6 +50,7 @@ const itemsPageVariants = [
 ];
 
 class Items extends Component {
+
   render() {
     // TODO: would be better to dynamically create the routes based on page variations
     const itemsPages = (
@@ -56,6 +60,45 @@ class Items extends Component {
         <Route exact path={`${routes.ITEMS}/items-plain`} component={ItemsPlain} />
       </Switch>
     );
+
+    //FIXME: Just for testing the api, delete this.
+    //apis.getPatientByID("COVID-19-AR-16434381"); //obtain patient by ID
+    const patient2 =
+    {
+      "_id": "123456789",
+      "age": 100,
+      "sex": "P",
+      "race": "Martian",
+      "zip": "118631",
+      "bmi": 40,
+      "weight": 200,
+      "height": "7",
+      "numOfIcuAdmits": 128,
+      "mortality": "T",
+      "tuberculosis": "N",
+      "measles": "N"
+  }
+  const examTest =
+  {
+    "_id": "Exam-100",
+    "patientId": "COVID-19-AR-16434409",
+    "daysToImgStudy": 100,
+    "hoursToImgStudy": 100,
+    "imgDescription": "XR CHEST AP PORTABLE",
+    "studyModality": "DX",
+    "keyFindings": "This patient does not exist and the image belongs to another patient",
+    "pngFilename": "COVID-19-AR-16434409_XR_CHEST_AP_PORTABLE_1.png"
+    }
+  //apis.getPatients() //Testing getting all patients
+  //apis.insertPatient(patient2); //Testing inserting new patient, it works
+  //apis.updatePatient("123456789", {sex: "I"}); //Testing updating patient
+  //apis.deletePatient("123456789"); //testing deleting patient
+  //apis.getExams({}); //Testing getting all Exams
+  //apis.getExamsOfPatient("COVID-19-AR-16434381"); //Testing getting exams by patient
+  //apis.insertExam(examTest); //Testing insert a new exam
+  //apis.updateExam("Exam-100", {"hoursToImgStudy": 200}); //Testing updating an exam
+  //apis.deleteExam("Exam-100"); //Testing deleting a specific exam
+  //NOTE: Testing ends here
 
     return (
       <>
@@ -74,7 +117,7 @@ class Items extends Component {
             </LinkGridWrapper>
           ))}
         </LinksGridContainer>
-        {itemsPages}
+        {/* {itemsPages} */}
       </>
     );
   }

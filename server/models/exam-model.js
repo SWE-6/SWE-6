@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const Exam = new Schema(
     {
       _id: {
-          type: Number,
+          type: String,
           required: true
       },
         patientId: {
