@@ -16,6 +16,8 @@ const api = axios.create({
   }),
 });
 
+// mongodb+srv://PeGuRi:8RgX6qLO9uTFeJI@cluster0.5efdq.mongodb.net/COVIDClinical?retryWrites=true&w=majority
+
 //From template
 // TODO - use interceptors for better error handling: https://masteringjs.io/tutorials/axios/interceptors#error-handling
 export const getAllItems = payload => api.get(`/items`, payload);
@@ -29,7 +31,13 @@ export const deleteItemById = id => api.delete(`/item/${id}`);
 */
 const getPatients = (payload) =>
 {
-  return api.get("/patients", payload);
+  api.get("/patients", payload).then(res => {
+    let patients = res.data
+    console.log(patients)
+    return patients
+  }).catch(e => {
+    console.error(e)
+  })
 };
 
 /**@param id the given ID used to search for patient
@@ -38,9 +46,9 @@ const getPatients = (payload) =>
 const getPatientByID = async (id) =>
 {
   //FIXME: axios returns empty json object, don't know why.
-  /*try
-  {
-    const patient = await api.get("/patients/"+id);
+  // try
+  // {
+  //   const patient = await api.get("/patients/"+id);
 
     return Promise.resolve(patient.data);
   }
@@ -55,8 +63,6 @@ const getPatientByID = async (id) =>
   ).catch(
     (e) => { console.log(e); }
   );
-
-  return patient;
 
   //FIXME: returns empty json object aswell?
   /*fetch("/patients/"+id).then(
