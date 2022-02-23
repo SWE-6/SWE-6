@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 //to connect to the mongo atlas DB
 const MONGO_URI = "mongodb+srv://PeGuRi:8RgX6qLO9uTFeJI@cluster0.5efdq.mongodb.net/COVIDClinical?retryWrites=true&w=majority"
+// const LOCAL_URI = "mongodb://127.0.0.1:27017/"
 
 mongoose
   .connect(MONGO_URI, { useNewUrlParser: true, useFindAndModify: true })

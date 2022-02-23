@@ -73,9 +73,10 @@ class Items extends Component {
 
     //FIXME: delete this, is just to test API GET and POST a patient
     //const patient = localGetPatientTest("COVID-19-AR-16445144");
-    const patient = apis.getPatientByID("COVID-19-AR-16434381"); //obtain patient by ID
+
     //const patient = {name:"Pedro",age:"27"};
-    console.log(JSON.stringify(patient)); //convert to string and print to console
+    // console.log(JSON.stringify(patient)); //convert to string and print to console
+    const patient = apis.getPatientByID("COVID-19-AR-16434381"); //obtain patient by ID
     const patient2 =
     {
       "_id": "123456789",
@@ -91,6 +92,7 @@ class Items extends Component {
       "tuberculosis": "N",
       "measles": "N"
   }
+  const allPatients = apis.getPatients()
   //apis.insertPatient(patient2); //Testing inserting new patient, it works
   //Testing ends here
     return (
@@ -110,7 +112,7 @@ class Items extends Component {
             </LinkGridWrapper>
           ))}
         </LinksGridContainer>
-        {itemsPages}
+        {/* {itemsPages} */}
       </>
     );
   }
