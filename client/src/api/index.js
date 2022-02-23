@@ -51,11 +51,7 @@ const getPatientByID = async (id) =>
   }*/
   //FIXME: retursn empty json?
   let patient = api.get("/patients/"+id).then(
-    (r) =>
-    {
-      let info = r.data;
-      return r.data;
-    } //r stands for response
+    (r) => { return r.data; } //r stands for response
   ).catch(
     (e) => { console.log(e); }
   );
