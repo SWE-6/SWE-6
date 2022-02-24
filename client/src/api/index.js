@@ -25,16 +25,16 @@ export const deleteItemById = id => api.delete(`/item/${id}`);
 // TODO - use interceptors for better error handling: https://masteringjs.io/tutorials/axios/interceptors#error-handling
 /**@desc API to GET all the patients of the database
 */
-const getPatients = (payload) =>
-{
-  api.get("/patients", payload).then(res => {
-    let patients = res.data
-    console.log(patients)
-    return patients
-  }).catch(e => {
-    console.error(e)
-  })
-};
+
+// const getPatients = payload => api.get(`/patients`, payload)
+
+// Arrow function have an implicit return. 
+//  promises might need to be resolved in the component? see patientList
+const getPatients = payload => api.get(`/patients`, payload)
+// const getPatients = (payload) => {
+//   return api.get(`/patients`, payload)
+// }
+
 
 /**@param id the given ID used to search for patient
 * @desc API to GET a single patient using ID.

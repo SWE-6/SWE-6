@@ -13,7 +13,7 @@ import './styles/App.css';
 import { NavBar, Welcome } from './components';
 
 // Pages
-import { ItemInsert, Items, ItemUpdate } from './pages';
+import { ItemInsert, Items, ItemUpdate, PatientsList } from './pages';
 
 class App extends Component {
   render() {
@@ -25,7 +25,7 @@ class App extends Component {
         </Route>
         <Route exact path={routes.ITEM_UPDATE} component={ItemUpdate} />
         <Route exact path={routes.HOME} component={Welcome} />
-        <Route exact path={routes.ITEMS} component={Items} />
+        <Route exact path={routes.ITEMS} component={PatientsList} />
         <Route exact path={`${routes.ITEMS}/items-plain`} component={Items} />
         <Route exact path={`${routes.ITEMS}/react-table-v6`} component={Items} />
         <Route exact path={routes.ITEM_INSERT} component={ItemInsert} />
