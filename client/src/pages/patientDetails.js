@@ -23,7 +23,7 @@ class patientDetails extends Component {
     componentDidMount = async () => {
         this.setState({ isLoading: true })
 
-        await api.getExamsOfPatient.then(exams => {
+        await api.getExamsOfPatient().then(exams => {
             this.setState({
                 exams: exams.data.data,
                 isLoading: false,
