@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 //to connect to the mongo atlas DB
-const MONGO_URI = "mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb"
+const MONGO_URI = "mongodb://127.0.0.1:27017/?compressors=zlib"
 // const LOCAL_URI = "mongodb://127.0.0.1:27017/"
 
 mongoose
