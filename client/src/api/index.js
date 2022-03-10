@@ -115,7 +115,7 @@ const getExams = (payload) =>
 /**@param id The ID of the patient
 * @desc returns an array of exams that belong to the patient of the given ID
 */
-const getExamsOfPatient = id => api.get(`/exams/${id}`)
+const getExamsOfPatient = id => api.get(`/patients/${id}/exams/`)
 
 /**@param id The ID of the exam to be updated
 * @desc returns the exam of the given ID
