@@ -23,9 +23,9 @@ class patientDetails extends Component {
     componentDidMount = async () => {
         this.setState({ isLoading: true })
 
-        await api.getExamsOfPatient().then(exams => {
+        await api.getExamsOfPatient(this.props.match.params.id).then(exams => {
             this.setState({
-                exams: exams.data.data,
+                exams: exams.data,
                 isLoading: false,
             })
         })
@@ -38,7 +38,7 @@ class patientDetails extends Component {
         const columns = [
             {
                 Header: 'Patient ID',
-                accessor: 'patientID',
+                accessor: 'patientId',
                 filterable: true,
             },
             {
@@ -54,7 +54,7 @@ class patientDetails extends Component {
         ]
 
         let showTable = true
-        if (!exams.length) {
+        if (!exams) {
             showTable = false
         }
 
