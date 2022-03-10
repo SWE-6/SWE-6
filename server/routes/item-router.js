@@ -40,5 +40,7 @@ router.get("/exams/:id", ItemController.getExamByID);
 router.post("/exams", ItemController.createExam);
 router.put("/exams/:id", ItemController.updateExam);
 router.delete("/exams/:id", ItemController.deleteExam);
+//other routers
+router.get("/geninfo", ItemController.getGenInfo);
 
 module.exports = router;

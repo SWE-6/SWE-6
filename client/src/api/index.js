@@ -25,22 +25,14 @@ export const deleteItemById = id => api.delete(`/item/${id}`);
 // TODO - use interceptors for better error handling: https://masteringjs.io/tutorials/axios/interceptors#error-handling
 /**@desc API to GET all the patients of the database
 */
-
-// const getPatients = payload => api.get(`/patients`, payload)
-
-// Arrow function have an implicit return. 
-//  promises might need to be resolved in the component? see patientList
-const getPatients = payload => api.get(`/patients`, payload)
-// const getPatients = (payload) => {
-//   return api.get(`/patients`, payload)
-// }
+const getPatients = (payload) => api.get("/patients", payload);
 
 
 /**@param id the given ID used to search for patient
-* @desc API to GET a single patient using ID.
+* @desc API to GET a single patient using ID. Handle promise when called
 */
-const getPatientByID = async (id) =>
-{
+const getPatientByID = (id) => api.get("/patients/" + id);
+/*{
   api.get(`/patients/${id}`).then(
     (r) =>
     {
@@ -51,7 +43,7 @@ const getPatientByID = async (id) =>
   ).catch(
     (e) => { console.log(e); }
   );
-};
+};*/
 
 /**@param payload patient as json object to send to the DB
 * @desc Insert a new patient to the database
@@ -99,10 +91,10 @@ const deletePatient = (id) =>
   }
 };
 
-/**@desc API to GET all the exams of the database
+/**@desc API to GET all the exams of the database. Handle promise when called
 */
-const getExams = (payload) =>
-{
+const getExams = (payload) => api.get("/exams", payload);
+/*{
   api.get("/exams", payload).then(res => {
     let exams = res.data
     console.log(exams)
@@ -110,13 +102,13 @@ const getExams = (payload) =>
   }).catch(e => {
     console.error(e)
   })
-};
+};*/
 
 /**@param id The ID of the patient
 * @desc returns an array of exams that belong to the patient of the given ID
 */
-const getExamsOfPatient = (id) =>
-{
+const getExamsOfPatient = (id) => api.get("/patients/" + id + "/exams/");
+/*{
   api.get("/patients/" + id + "/exams/").then(
     (res) =>
     {
@@ -127,13 +119,13 @@ const getExamsOfPatient = (id) =>
   ).catch(
     (e) => { console.error(e); }
   );
-};
+};*/
 
 /**@param id The ID of the exam to be updated
-* @desc returns the exam of the given ID
+* @desc returns the exam of the given ID. Handle promise when called
 */
-const getExamByID = (id) =>
-{
+const getExamByID = (id) => api.get("/exams/" + id);
+/*{
   api.get("/exams/"+id).then(
     (res) =>
     {
@@ -144,7 +136,7 @@ const getExamByID = (id) =>
   ).catch(
     (e) => { console.error(e); }
   );
-};
+};*/
 
 /**@param payload The object of the new exam to be inserted
 * @desc inserts a new exam to the database
@@ -192,6 +184,17 @@ const deleteExam = (id) =>
   }
 };
 
+const getGeneralInfo = (payload) => api.get("/geninfo");
+/*{
+  const lambResolve = (res) => {
+    let info = res.data;
+    console.log(info);
+    return info;
+  };
+  const lambErrorHandler = (e) => console.error(e);
+  api.get("/geninfo").then(lambResolve).catch(lambErrorHandler);
+}*/
+
 const apis = {
   getAllItems,
   getItemById,
@@ -210,7 +213,9 @@ const apis = {
   getExamByID,
   insertExam,
   updateExam,
-  deleteExam
+  deleteExam,
+  //other API
+  getGeneralInfo
 };
 
 export default apis;

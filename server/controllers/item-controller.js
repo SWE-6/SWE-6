@@ -151,13 +151,65 @@ deleteExam = asyncHandler( async (req, res) =>
   const exam = await exams.findById(req.params["id"]);
   if (!exam)
   {
-    rest.status(400);
+    res.status(400);
     throw new Error("Patient not found");
   }
 
   await exams.findOneAndDelete({_id: req.params.id}); //Did work
 
   res.status(200).json({_id: req.params["id"]}); //just return the id back
+});
+
+//other controllers (unification of the two databases)
+
+/**@dec returns an array of a combination fo data between patients and their last exam as general information
+*/
+getGenInfo = asyncHandler( async (req, res) =>
+{
+  let infos = new Array();
+  //let patientExams;
+  const allPatients = await patients.find({});
+
+  if (allPatients)
+  {
+    for (let i = 0; i < allPatients.length; ++i)
+    {
+      let patientExams = await exams.find({patientId: allPatients[i]._id});
+      if (patientExams)
+      {
+        let lastExam = patientExams.length-1;
+        let image = (patientExams.length > 0)? patientExams[lastExam].pngFilename : "NULL";
+        let tempExamId = (patientExams.length > 0)? patientExams[lastExam]._id : "NULL";
+        let tempKeyFindings = (patientExams.length > 0)? patientExams[lastExam].keyFindings : "NULL";
+
+        let tempInfo =
+        {
+          id: allPatients[i]._id,
+          examId: tempExamId,
+          pngFilename: image,
+          keyFindings: tempKeyFindings,
+          age: allPatients[i].age,
+          sex: allPatients[i].sex,
+          bmi: allPatients[i].bmi,
+          zip: allPatients[i].zip
+        };
+
+        infos.push(tempInfo);
+      }
+      else
+      {
+        res.status(400);
+        throw new Erro("Failure at getGenInfo\nCouldn't get any exams for patient " + patient._id);
+      }
+    }
+
+    res.status(200).json(infos);
+  }
+  else
+  {
+    res.status(400);
+    throw new Error("Failure at getGenInfo\nCouldn't get any patients");
+  }
 });
 
 module.exports = {
@@ -172,4 +224,5 @@ module.exports = {
   createExam,
   updateExam,
   deleteExam,
+  getGenInfo
 };
