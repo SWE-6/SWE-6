@@ -5,40 +5,44 @@ const Schema = mongoose.Schema;
 const Exam = new Schema(
     {
       _id: {
+        type: String,
+        //required: false
+      },
+      examId: {
           type: String,
           required: true
       },
-        patientId: {
-            type: String,
-            required: true
-        },
-        daysToImgStudy: {
-            type: Number,
-            required: true
-        },
-        hoursToImgStudy: {
-            type: Number,
-            required: true
-        },
-        imgDescription:  {
-            type: String,
-            required: true
-        },
-        studyModality: {
-            type: String,
-            required: true
-        },
-        oxygenAtImgStudy: {
-            type: Number
-        },
-        keyFindings: {
-            type: String//,
-            //required: true
-        },
-        pngFilename: {
-            type: String,
-            required: true
-        }
+      patientId: {
+          type: String,
+          required: true
+      },
+      daysToImgStudy: {
+          type: Number,
+          required: true
+      },
+      hoursToImgStudy: {
+          type: Number,
+          required: true
+      },
+      imgDescription:  {
+          type: String,
+          required: true
+      },
+      studyModality: {
+          type: String,
+          required: true
+      },
+      oxygenAtImgStudy: {
+          type: Number
+      },
+      keyFindings: {
+          type: String//,
+          //required: true
+      },
+      pngFilename: {
+          type: String,
+          required: true
+      }
     }
 );
 

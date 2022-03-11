@@ -11,8 +11,6 @@ import MaUTable from "@material-ui/core/Table";
 import { TableCell, TableRow, } from "@material-ui/core";
 import DeleteButton from "../buttons/DeleteButton"
 
-import styled from "styled-components";
-
 /**@param props porperties passed for the react element
 * @desc renders the row for the AdminTable
 */
