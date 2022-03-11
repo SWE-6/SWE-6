@@ -15,6 +15,7 @@ class patientDetails extends Component {
         super(props)
         this.state = {
             exams: [],
+            patients:[],
             columns: [],
             isLoading: false,
         }
@@ -29,50 +30,37 @@ class patientDetails extends Component {
                 isLoading: false,
             })
         })
+
+        await api.getPatientByID(this.props.match.params.id).then(patients => {
+            this.setState({
+                patients: [patients.data],
+                isLoading: false,
+            })
+        })
+
+
     }
 
     render() {
-        const { exams, isLoading } = this.state
-        console.log('TCL: patientDetails -> render -> exams ', exams)
-
-        const columns = [
-            {
-                Header: 'Patient ID',
-                accessor: 'patientId',
-                filterable: true,
-            },
-            {
-                Header: 'Exam ID',
-                accessor: '_id',
-                filterable: true,
-            },
-            {
-                Header: 'Key Findings',
-                accessor: 'keyFindings',
-                filterable: true,
-            },
-        ]
-
-        let showTable = true
-        if (!exams) {
-            showTable = false
-        }
+        const { patients, exams, isLoading } = this.state
+        console.log(patients)
 
         return (
-            <Wrapper>
-                {showTable && (
-                    <ReactTable
-                        data={exams}
-                        columns={columns}
-                        loading={isLoading}
-                        defaultPageSize={10}
-                        showPageSizeOptions={true}
-                        minRows={0}
-                    />
-                )}
-            </Wrapper>
-        )
-    }
-}
+            <div>
+                    <ul>
+                    {this.state.exams.map((exam) => (
+                        <li key={exam._id}>{exam._id}</li>
+                    ))}
+                    </ul>
+                    
+                    <ul>
+                    {this.state.patients.map((patient) => (
+                        <li key={patient._id}>{patient._id}</li>
+                    ))}
+                    </ul>
+            </div>
+                    )
+                }
+            }
 
 export default patientDetails
