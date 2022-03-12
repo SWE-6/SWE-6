@@ -11,7 +11,8 @@ import './styles/App.css';
 
 // Static/Stateless
 import { NavBar, Welcome } from './components';
-
+import PatientDetails from './pages/PatientDetails';
+import ExamDetails from './pages/ExamDetails';
 // Pages
 import { ItemInsert, Items, ItemUpdate, PatientsList } from './pages';
 
@@ -29,6 +30,9 @@ class App extends Component {
         <Route exact path={`${routes.ITEMS}/items-plain`} component={Items} />
         <Route exact path={`${routes.ITEMS}/react-table-v6`} component={Items} />
         <Route exact path={routes.ITEM_INSERT} component={ItemInsert} />
+        <Route exact path={routes.ITEMS} component={PatientsList} />
+        <Route exact path={routes.ITEM} component={PatientDetails} />
+        <Route exact path={routes.EXAM_ID} component={ExamDetails} />
       </Switch>
     );
 
