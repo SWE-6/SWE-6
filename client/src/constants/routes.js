@@ -20,4 +20,5 @@ export const routes = {
   ITEM,
   ITEM_INSERT,
   ITEM_UPDATE,
+  EXAM_ID,
 };
