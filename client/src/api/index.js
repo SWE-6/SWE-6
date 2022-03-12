@@ -31,6 +31,7 @@ export const deleteItemById = id => api.delete(`/item/${id}`);
 // Arrow function have an implicit return. 
 //  promises might need to be resolved in the component? see patientList
 const getPatients = payload => api.get(`/patients`, payload)
+const getExams = payload => api.get(`/exams`, payload)
 // const getPatients = (payload) => {
 //   return api.get(`/patients`, payload)
 // }
@@ -89,33 +90,33 @@ const deletePatient = (id) =>
 
 /**@desc API to GET all the exams of the database
 */
-const getExams = (payload) =>
-{
-  api.get("/exams", payload).then(res => {
-    let exams = res.data
-    console.log(exams)
-    return exams
-  }).catch(e => {
-    console.error(e)
-  })
-};
+// const getExams = (payload) =>
+// {
+//   api.get("/exams", payload).then(res => {
+//     let exams = res.data
+//     console.log(exams)
+//     return exams
+//   }).catch(e => {
+//     console.error(e)
+//   })
+// };
 
 /**@param id The ID of the patient
 * @desc returns an array of exams that belong to the patient of the given ID
 */
-const getExamsOfPatient = (id) =>
-{
-  api.get("/patients/" + id + "/exams/").then(
-    (res) =>
-    {
-      let exams = res.data;
-      console.log(exams);
-      return exams;
-    }
-  ).catch(
-    (e) => { console.error(e); }
-  );
-};
+// const getExamsOfPatient = (id) =>
+// {
+//   api.get("/patients/" + id + "/exams/").then(
+//     (res) =>
+//     {
+//       let exams = res.data;
+//       console.log(exams);
+//       return exams;
+//     }
+//   ).catch(
+//     (e) => { console.error(e); }
+//   );
+// };
 
 /**@param id The ID of the exam to be updated
 * @desc returns the exam of the given ID
