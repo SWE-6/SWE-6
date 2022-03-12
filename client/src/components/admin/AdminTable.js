@@ -46,7 +46,6 @@ function AdminTable()
 
   return (
     <>
-      <h1>Create Button Here</h1>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>

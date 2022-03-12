@@ -12,7 +12,10 @@ class Admin extends Component
   render()
   {
     return (
-      <AdminTable/>
+      <>
+        <h1>Create Button Here</h1>
+        <AdminTable/>
+      </>
     );
   }
 }

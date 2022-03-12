@@ -9,7 +9,8 @@ import apis from "../../api";
 
 import MaUTable from "@material-ui/core/Table";
 import { TableCell, TableRow, } from "@material-ui/core";
-import DeleteButton from "../buttons/DeleteButton"
+import {DeleteButton, UpdateButton} from "../buttons";
+//import {UpdateButton} from "../buttons/UpdateButton";
 
 /**@param props porperties passed for the react element
 * @desc renders the row for the AdminTable
@@ -39,7 +40,7 @@ function AdminRow(props)
       <TableCell>{props.row.sex}</TableCell>
       <TableCell>{props.row.bmi}</TableCell>
       <TableCell>{props.row.zip}</TableCell>
-      <TableCell>Update Button here</TableCell>
+      <TableCell><UpdateButton id={props.row.id} exam={props.row.exam}/></TableCell>
       <TableCell><DeleteButton id={props.row.id} onDelete={onDelete}/></TableCell>
     </TableRow>
   );

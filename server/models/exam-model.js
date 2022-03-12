@@ -4,10 +4,6 @@ const Schema = mongoose.Schema;
 
 const Exam = new Schema(
     {
-      _id: {
-        type: String,
-        //required: false
-      },
       examId: {
           type: String,
           required: true
