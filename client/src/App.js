@@ -26,13 +26,13 @@ class App extends Component {
         </Route>
         <Route exact path={routes.ITEM_UPDATE} component={ItemUpdate} />
         <Route exact path={routes.HOME} component={Welcome} />
-        <Route exact path={routes.ITEMS} component={PatientsList} />
         <Route exact path={`${routes.ITEMS}/items-plain`} component={Items} />
         <Route exact path={`${routes.ITEMS}/react-table-v6`} component={Items} />
         <Route exact path={routes.ITEM_INSERT} component={ItemInsert} />
         <Route exact path={routes.ITEMS} component={PatientsList} />
         <Route exact path={routes.ITEM} component={PatientDetails} />
         <Route exact path={routes.EXAM_ID} component={ExamDetails} />
+         
       </Switch>
     );
 
