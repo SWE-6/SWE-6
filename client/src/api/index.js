@@ -39,20 +39,8 @@ const getPatients = payload => api.get(`/patients`, payload)
 /**@param id the given ID used to search for patient
 * @desc API to GET a single patient using ID.
 */
-const getPatientByID = async (id) =>
-{
-  api.get(`/patients/${id}`).then(
-    (r) =>
-    {
-      let patient = r.data;
-      console.log(patient);
-      return patient;
-    } //r stands for response
-  ).catch(
-    (e) => { console.log(e); }
-  );
-};
-
+const getPatientByID = id => api.get(`/patients/${id}`)
+const getExamsOfPatient = id => api.get(`/patients/${id}`)
 /**@param payload patient as json object to send to the DB
 * @desc Insert a new patient to the database
 */
