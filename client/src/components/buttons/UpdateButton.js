@@ -7,6 +7,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {Link} from "react-router-dom";
+import {routes} from "../../constants";
 
 import styled from 'styled-components';
 
@@ -20,28 +22,16 @@ const Update = styled.div.attrs({
 class UpdateButton extends Component {
   constructor(props)
   {
-    super(props);
-    this.redirectUpdatePage = this.redirectUpdatePage.bind(this);
-  }
-
-  /*confirmDeleteItem = event => {
-    event.preventDefault();
-
-    if (window.confirm(`Do you want to permanently delete this patient's records? ${this.props.id}`))
-    {
-         this.props.onDelete(this.props.id);
-    }
-  };*/
-
-  redirectUpdatePage (event)
-  {
-    event.preventDefault();
-
-    console.log("Update clicked!\nPatient to be updated: " + this.props.id + "\nExam to be updated: " + this.props.exam);
+    super(props); //props include {id: "patientId", exam: "unique exam id"}
   }
 
   render() {
-    return <Update onClick={this.redirectUpdatePage}>Update</Update>;
+    return (
+      //TODO: Link to the Update page
+      <Link to={routes.ITEMS} data={this.props}>
+        <Update>Update</Update>
+      </Link>
+    );
   }
 }
 

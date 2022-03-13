@@ -48,14 +48,14 @@ function AdminTable()
     <>
       <TableContainer component={Paper}>
         <Table>
-          <TableHead>
-            <TableCell>Patient ID</TableCell>
-            <TableCell>Exam ID</TableCell>
-            <TableCell>Key Findings</TableCell>
-            <TableCell>Age</TableCell>
-            <TableCell>Sex</TableCell>
-            <TableCell>BMI</TableCell>
-            <TableCell>Zip Code</TableCell>
+          <TableHead style={{fontWeight: "bold"}}>
+            <TableCell style={{fontWeight: "bold"}}>Patient ID</TableCell>
+            <TableCell style={{fontWeight: "bold"}}>Exam ID</TableCell>
+            <TableCell style={{fontWeight: "bold"}}>Key Findings</TableCell>
+            <TableCell style={{fontWeight: "bold"}}>Age</TableCell>
+            <TableCell style={{fontWeight: "bold"}}>Sex</TableCell>
+            <TableCell style={{fontWeight: "bold"}}>BMI</TableCell>
+            <TableCell style={{fontWeight: "bold"}}>Zip Code</TableCell>
             <TableCell></TableCell>
             <TableCell></TableCell>
           </TableHead>

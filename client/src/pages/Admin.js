@@ -6,6 +6,7 @@
 
 import React, { Component } from "react";
 import AdminTable from "../components/admin/AdminTable.js";
+import CreateButton from "../components/buttons/CreateButton";
 
 class Admin extends Component
 {
@@ -13,7 +14,7 @@ class Admin extends Component
   {
     return (
       <>
-        <h1>Create Button Here</h1>
+        <CreateButton id="CreateButton"/>
         <AdminTable/>
       </>
     );
