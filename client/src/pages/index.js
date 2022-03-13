@@ -4,8 +4,11 @@ import ItemsList from './ItemsList';
 import ItemsPlain from './ItemsPlain';
 import ItemsTable from './ItemsTable';
 import ItemUpdate from './ItemUpdate';
-import PatientsList from './PatientsList'
-import Admin from './Admin'
+import PatientsList from './Exam';
+import Admin from './Admin';
+import Exams from './Exam';
+import ExamDetails from './ExamDetails';
+import PatientDetails from './PatientDetails';
 
 export {
     ItemInsert,
@@ -14,6 +17,9 @@ export {
     ItemsPlain,
     ItemsTable,
     ItemUpdate,
+    Exams,
+    Admin,
+    ExamDetails, 
     PatientsList,
-    Admin
+    PatientDetails,
 };
