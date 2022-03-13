@@ -5,20 +5,20 @@ const SIGN_UP = '/signup';
 const LOG_IN = '/login';
 
 // Post routes
-const ITEMS = '/patients';
+const EXAMS = '/exams';
+const ADMIN = '/admin';
 const ITEM = '/patient/:id';
-const EXAM_ID = '/exam/:id';
-const ITEM_INSERT = '/patient/create';
-const ITEM_UPDATE = '/patient/update/:id';
+const ITEM_INSERT = '/item/create';
+const ITEM_UPDATE = '/item/update/:id';
 
 export const routes = {
   HOME,
   ABOUT,
   SIGN_UP,
   LOG_IN,
-  ITEMS,
+  EXAMS,
+  ADMIN,
   ITEM,
   ITEM_INSERT,
   ITEM_UPDATE,
-  EXAM_ID,
 };
