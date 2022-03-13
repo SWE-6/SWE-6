@@ -21,7 +21,7 @@ class CreateButton extends Component {
   {
     return (
       //TODO: Link to the Create page
-      <Link to={routes.ITEMS}>
+      <Link to={routes.CREATE_EXAM}>
         <div class="create-btn">Create Exam</div>
       </Link>
     );

@@ -6,6 +6,8 @@ import ItemsTable from './ItemsTable';
 import ItemUpdate from './ItemUpdate';
 import PatientsList from './PatientsList'
 import Admin from './Admin'
+import CreateExam from './CreateExam'
+import EditExam from './EditExam'
 
 export {
     ItemInsert,
@@ -15,5 +17,7 @@ export {
     ItemsTable,
     ItemUpdate,
     PatientsList,
-    Admin
+    Admin,
+    CreateExam,
+    EditExam
 };

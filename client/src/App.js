@@ -13,7 +13,7 @@ import './styles/App.css';
 import { NavBar, Welcome } from './components';
 
 // Pages
-import { ItemInsert, Items, ItemUpdate, PatientsList, Admin } from './pages';
+import { ItemInsert, Items, ItemUpdate, PatientsList, Admin, CreateExam, EditExam } from './pages';
 
 class App extends Component {
   render() {
@@ -31,6 +31,9 @@ class App extends Component {
         <Route exact path={routes.ITEM_INSERT} component={ItemInsert} />
 
         <Route exact path={routes.ADMIN} component={Admin}/>
+        <Route exact path={routes.CREATE_EXAM} component={CreateExam}/>
+        <Route path={routes.EDIT_EXAM} component={EditExam}/>
+
       </Switch>
     );
 

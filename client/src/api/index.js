@@ -141,17 +141,7 @@ const getExamByID = (id) => api.get("/exams/" + id);
 /**@param payload The object of the new exam to be inserted
 * @desc inserts a new exam to the database
 */
-const insertExam = (payload) =>
-{
-  try
-  {
-    api.post("/exams/", payload);
-  }
-  catch (e)
-  {
-    console.error(e);
-  }
-};
+const insertExam = (payload) => api.post("/exams/", payload)
 
 /**@param id The ID of the exam to be updated
 * @param payload The json object that holds the fields and the data for the exam to be updated with
