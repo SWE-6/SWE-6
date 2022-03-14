@@ -18,7 +18,7 @@ const Welcome = () => (
             MERN&nbsp;tech-stack
           </a>
           also
-          <Link to="/item/61ddf4aebb70255bc9bd096c/update">Here</Link>.
+           <Link to="/item/61ddf4aebb70255bc9bd096c/update">Here</Link>.
         </p>
       </div>
     </div>
