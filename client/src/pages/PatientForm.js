@@ -4,6 +4,7 @@ import apis from '../api';
 
 
 function PatientForm({ patient }) {
+    const [patientId, setPatientId] = useState(patient.id);
     const [age, setAge] = useState(patient.age)
     const [sex, setSex] = useState(patient.sex)
     const [race, setRace] = useState(patient.race)
@@ -35,6 +36,36 @@ function PatientForm({ patient }) {
     const [numOfIcuAdmits, setNumOfIcuAdmits] = useState(patient.numOfIcuAdmits)
     const [mortality, setMortality] = useState(patient.mortality)
     const [update, setUpdate] = useState(false)
+
+    /**@desc creates and unique id that does not exist on the collection
+    */
+    const createId = () => {
+      let unique = false;
+      let patient = null;
+      let id = "COVID-19-AR-";
+
+      while(!unique)
+      {
+        for (let i = 0; i < 8; ++i)
+        {
+          id += Math.floor(Math.random()*10);
+        }
+
+        const lambCheck = (res) => {
+          res.data = patient;
+        };
+        apis.getPatientByID(id).then(lambCheck).catch((err) => console.error(err));
+
+        if (patient == null)
+        {
+          unique = true;
+        }
+      }
+
+      console.log(id);
+
+      return id;
+    }
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -79,15 +110,18 @@ function PatientForm({ patient }) {
                 })
                 .catch(err => console.error("Error in PatientForm: ", err))
         } else {
-            apis.insertPatient(new_patient)
-                .then(res => {
-                    console.log(res)
-                    alert("Patient Insert Successful")
-                })
-                .catch(err => console.error("Error in PatientForm: ", err))
-            alert(age)
+          const newId = createId();
+          new_patient._id = newId;
+          apis.insertPatient(new_patient)
+              .then(res => {
+                  console.log(res)
+                  alert("Patient Insert Successful")
+              })
+              .catch(err => console.error("Error in PatientForm: ", err))
+          //alert(age)
+          setPatientId(newId);
         }
-        alert(age)
+        //alert(age)
     }
 
     // Update form values
@@ -134,6 +168,7 @@ function PatientForm({ patient }) {
         <form onSubmit={handleSubmit}>
             <FormControl fullWidth={true}>
                 <Button variant="contained" color="primary" type="submit" onClick={handleSubmit}>Submit Patient</Button>
+                <p>Patient ID: {patientId}</p>
 
                 <TextField value={age} defaultValue={patient.age} required={true} type="number"
                     onChange={e => setAge(e.target.value)}
@@ -286,6 +321,7 @@ function PatientForm({ patient }) {
                     InputLabelProps={{ shrink: icuAdmittance ? true : false }}
                     name="tuberculosis" label="ICU Admittance" margin="normal" variant="outlined" />
 
+                <p>Generated Patient ID: {patientId}</p>
             </FormControl>
         </form>
 
