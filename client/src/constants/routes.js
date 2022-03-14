@@ -12,6 +12,7 @@ const ITEM_UPDATE = '/item/update/:id';
 
 //
 const ADMIN = "/admin";
+const UPDATE = "/admin/update";
 
 export const routes = {
   HOME,
@@ -23,5 +24,6 @@ export const routes = {
   ITEM_INSERT,
   ITEM_UPDATE,
   //
-  ADMIN
+  ADMIN,
+  UPDATE
 };
