@@ -8,6 +8,7 @@ const LOG_IN = '/login';
 const EXAMS = '/exams';
 const ADMIN = '/admin';
 const ITEM = '/patient/:id';
+const PATIENT_EXAM = '/patients/:id';
 const ITEM_INSERT = '/item/create';
 const ITEM_UPDATE = '/item/update/:id';
 
@@ -21,4 +22,5 @@ export const routes = {
   ITEM,
   ITEM_INSERT,
   ITEM_UPDATE,
+  PATIENT_EXAM,
 };

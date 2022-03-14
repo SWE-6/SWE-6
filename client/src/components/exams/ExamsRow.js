@@ -22,9 +22,9 @@ function ExamsRow(props)
 
   return (
     <TableRow key={props.row.id}>
-      <TableCell component="th" scope="row"><Link to="/react">{props.row.id}</Link></TableCell>
+      <TableCell component="th" scope="row"><Link to={`/patients/${props.row.id}`}>{props.row.id}</Link></TableCell>
       <TableCell><Link to={`/patient/${props.row.id}`}>{props.row.examId}</Link></TableCell>
-      <TableCell><img src ={props.row.pngFilename}></img></TableCell>
+      <TableCell><img src ={`https://ohif-hack-diversity-covid.s3.amazonaws.com/covid-png/${props.row.pngFilename}`} width="50" height="50"/></TableCell>
       <TableCell>{props.row.keyFindings}</TableCell>
       <TableCell>{props.row.age}</TableCell>
       <TableCell>{props.row.sex}</TableCell>

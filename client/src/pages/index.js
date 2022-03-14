@@ -8,7 +8,7 @@ import PatientsList from './Exam';
 import Admin from './Admin';
 import Exams from './Exam';
 import ExamDetails from './ExamDetails';
-import PatientDetails from './PatientDetails';
+import PatientID from './PatientID';
 
 export {
     ItemInsert,
@@ -21,5 +21,5 @@ export {
     Admin,
     ExamDetails, 
     PatientsList,
-    PatientDetails,
+    PatientID,
 };
