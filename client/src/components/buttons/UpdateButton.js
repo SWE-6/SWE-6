@@ -13,7 +13,7 @@ import {routes} from "../../constants";
 import styled from 'styled-components';
 
 const Update = styled.div.attrs({
-  className: 'update-btn',
+  className: 'update-item-btn',
 })`
   color: #0000ff;
   cursor: pointer;
@@ -22,18 +22,13 @@ const Update = styled.div.attrs({
 class UpdateButton extends Component {
   constructor(props)
   {
-    super(props);
-    //this.state={data: {}};
+    super(props); //props include {id: "patientId", exam: "unique exam id"}
   }
 
   render() {
     return (
       //TODO: Link to the Update page
-<<<<<<< HEAD
-      <Link to={routes.UPDATE} data={this.props}>
-=======
       <Link to={`/edit/patient/${this.props.id}/exam/${this.props.exam}`} exam={this.props.exam} id={this.props.id}>
->>>>>>> aa00575ee206b5033f43f22282ffb6be6a9e88e8
         <Update>Update</Update>
       </Link>
     );

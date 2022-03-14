@@ -13,11 +13,7 @@ import './styles/App.css';
 import { NavBar, Welcome } from './components';
 
 // Pages
-<<<<<<< HEAD
-import { ItemInsert, Items, ItemUpdate, PatientsList, Admin, Update } from './pages';
-=======
-import { ItemInsert, Items, ItemUpdate, PatientsList, Admin, CreateExam, EditExam } from './pages';
->>>>>>> aa00575ee206b5033f43f22282ffb6be6a9e88e8
+import { Items, Admin, CreateExam, EditExam } from './pages';
 
 class App extends Component {
   render() {
@@ -27,21 +23,15 @@ class App extends Component {
         <Route exact path={routes.HOME}>
           <Redirect to={routes.ITEMS} />
         </Route>
-        <Route exact path={routes.ITEM_UPDATE} component={ItemUpdate} />
         <Route exact path={routes.ITEMS} component={Welcome} />
         <Route exact path={routes.ITEMS} component={Items} />
         <Route exact path={`${routes.ITEMS}/items-plain`} component={Items} />
         <Route exact path={`${routes.ITEMS}/react-table-v6`} component={Items} />
-        <Route exact path={routes.ITEM_INSERT} component={ItemInsert} />
 
         <Route exact path={routes.ADMIN} component={Admin}/>
-<<<<<<< HEAD
-        <Route exact path={routes.UPDATE} component={Update}/>
-=======
         <Route exact path={routes.CREATE_EXAM} component={CreateExam}/>
         <Route path={routes.EDIT_EXAM} component={EditExam}/>
 
->>>>>>> aa00575ee206b5033f43f22282ffb6be6a9e88e8
       </Switch>
     );
 

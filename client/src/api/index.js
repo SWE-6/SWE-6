@@ -15,13 +15,6 @@ const api = axios.create({
   }),
 });
 
-//FIXME: From template. These functions have no practical use, must be deleted once pages are made
-export const getAllItems = payload => api.get(`/items`, payload);
-export const getItemById = id => api.get(`/item/${id}`);
-export const insertItem = payload => api.post(`/item`, payload);
-export const updateItemById = (id, payload) => api.put(`/item/${id}`, payload);
-export const deleteItemById = id => api.delete(`/item/${id}`);
-
 // TODO - use interceptors for better error handling: https://masteringjs.io/tutorials/axios/interceptors#error-handling
 /**@desc API to GET all the patients of the database
 */
@@ -158,11 +151,6 @@ const getGeneralInfo = (payload) => api.get("/geninfo");
 }*/
 
 const apis = {
-  getAllItems,
-  getItemById,
-  insertItem,
-  updateItemById,
-  deleteItemById,
   //API for patients
   getPatients,
   getPatientByID,
