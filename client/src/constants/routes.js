@@ -11,7 +11,7 @@ const ITEM = '/patient/:id';
 const PATIENT_EXAM = '/patients/:id';
 const ITEM_INSERT = '/item/create';
 const ITEM_UPDATE = '/item/update/:id';
-
+const CREATE_EXAM = "/new/exam";
 export const routes = {
   HOME,
   ABOUT,
@@ -22,5 +22,7 @@ export const routes = {
   ITEM,
   ITEM_INSERT,
   ITEM_UPDATE,
+  //
   PATIENT_EXAM,
+  CREATE_EXAM,
 };

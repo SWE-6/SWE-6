@@ -47,7 +47,7 @@ function AdminTable()
   return (
     <>
       <TableContainer component={Paper}>
-        <Table>
+        <Table style={{width: "80em", margin: "auto"}}>
           <TableHead style={{fontWeight: "bold"}}>
             <TableCell style={{fontWeight: "bold"}}>Patient ID</TableCell>
             <TableCell style={{fontWeight: "bold"}}>Exam ID</TableCell>

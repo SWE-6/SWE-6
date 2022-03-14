@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Delete = styled.div.attrs({
-  className: 'delete-item-btn',
+  className: 'delete-btn',
 })`
   color: #ff0000;
   cursor: pointer;
