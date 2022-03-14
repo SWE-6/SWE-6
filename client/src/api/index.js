@@ -48,45 +48,23 @@ const getPatientByID = (id) => api.get("/patients/" + id);
 /**@param payload patient as json object to send to the DB
 * @desc Insert a new patient to the database
 */
-const insertPatient = (payload) =>
-{
-  try
-  {
-    api.post("/patients", payload);
-  }
-  catch (e)
-  {
-    console.error(e);
-  }
-};
+const insertPatient = (payload) => api.post("/patients", payload);
+
 
 /**@param id The ID of the patient to be updated
 * @param payload The json object that holds the fields and the data for the patient to be updated with
 * @desc Updates a patient of the given ID
 */
-const updatePatient = (id, payload) =>
-{
-  try
-  {
-    api.put("/patients/"+id, payload);
-  }
-  catch (e)
-  {
-    console.error(e);
-  }
-};
+const updatePatient = (id, payload) => api.put("/patients/" + id, payload);
 
 /**@param id The ID of the patient to be deleted
 * @desc deletes a patient of the given ID
 */
-const deletePatient = (id) =>
-{
-  try
-  {
-    api.delete("/patients/"+id);
+const deletePatient = (id) => {
+  try {
+    api.delete("/patients/" + id);
   }
-  catch (e)
-  {
+  catch (e) {
     console.error(e);
   }
 };
@@ -141,30 +119,17 @@ const getExamByID = (id) => api.get("/exams/" + id);
 /**@param payload The object of the new exam to be inserted
 * @desc inserts a new exam to the database
 */
-const insertExam = (payload) =>
-{
-  try
-  {
-    api.post("/exams/", payload);
-  }
-  catch (e)
-  {
-    console.error(e);
-  }
-};
+const insertExam = (payload) => api.post("/exams/", payload)
 
 /**@param id The ID of the exam to be updated
 * @param payload The json object that holds the fields and the data for the exam to be updated with
 * @desc Updates a exam of the given ID
 */
-const updateExam = (id, payload) =>
-{
-  try
-  {
-    api.put("/exams/"+id, payload);
+const updateExam = (id, payload) => {
+  try {
+    api.put("/exams/" + id, payload);
   }
-  catch (e)
-  {
+  catch (e) {
     console.error(e);
   }
 };
@@ -172,14 +137,11 @@ const updateExam = (id, payload) =>
 /**@param id The ID of the exam to be deleted
 * @desc dletes a specific exam from the database
 */
-const deleteExam = (id) =>
-{
-  try
-  {
-    api.delete("/exams/"+id);
+const deleteExam = (id) => {
+  try {
+    api.delete("/exams/" + id);
   }
-  catch (e)
-  {
+  catch (e) {
     console.error(e);
   }
 };

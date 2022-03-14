@@ -13,7 +13,11 @@ import './styles/App.css';
 import { NavBar, Welcome } from './components';
 
 // Pages
+<<<<<<< HEAD
 import { ItemInsert, Items, ItemUpdate, PatientsList, Admin, Update } from './pages';
+=======
+import { ItemInsert, Items, ItemUpdate, PatientsList, Admin, CreateExam, EditExam } from './pages';
+>>>>>>> aa00575ee206b5033f43f22282ffb6be6a9e88e8
 
 class App extends Component {
   render() {
@@ -31,7 +35,13 @@ class App extends Component {
         <Route exact path={routes.ITEM_INSERT} component={ItemInsert} />
 
         <Route exact path={routes.ADMIN} component={Admin}/>
+<<<<<<< HEAD
         <Route exact path={routes.UPDATE} component={Update}/>
+=======
+        <Route exact path={routes.CREATE_EXAM} component={CreateExam}/>
+        <Route path={routes.EDIT_EXAM} component={EditExam}/>
+
+>>>>>>> aa00575ee206b5033f43f22282ffb6be6a9e88e8
       </Switch>
     );
 
