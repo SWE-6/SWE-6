@@ -1,6 +1,7 @@
+import { Grid } from "@material-ui/core";
 import React, { Component, useState } from "react";
-import { FormControl, TextField, Button } from "@material-ui/core";
 import ExamForm from "./ExamForm";
+import PatientForm from "./PatientForm";
 
 
 function CreateExam() {
@@ -15,9 +16,27 @@ function CreateExam() {
         pngFilename: "",
         examId: ""
     }
+    const patient = {
+        age: "",
+        sex: "",
+        race: "",
+        zip: "",
+        bmi: "",
+        weight: "",
+        height: "",
+        numOfIcuAdmits: "",
+        mortality: ""
+    }
 
     return (
-        <ExamForm exam={exam}/>
+        <Grid container>
+            <Grid itex xs={6}>
+                <PatientForm patient={patient} />
+            </Grid>
+            <Grid item xs={6}>
+                <ExamForm exam={exam} />
+            </Grid>
+        </Grid>
     )
 }
 

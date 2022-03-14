@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import { FormControl, TextField, Button, Grid } from "@material-ui/core";
-import api from '../api';
+import apis from '../api';
 
 
 function ExamForm({ exam }) {
@@ -26,9 +26,10 @@ function ExamForm({ exam }) {
             pngFilename: pngFilename,
             examId: examId
         }
-        api.insertExam(exam)
+        apis.insertExam(exam)
             .then(res => {
                 console.log(res)
+                alert("Exam Insert Successful")
             })
             .catch(err => console.error("Error in ExamForm: ", err))
         e.preventDefault()
@@ -36,7 +37,7 @@ function ExamForm({ exam }) {
 
     // Update form values
     useEffect(() => {
-        api.getExamByID(exam.id)
+        apis.getExamByID(exam.id)
             .then(res => {
                 const exam_data = res.data[0]
                 setPatientId(exam_data.patientId)
@@ -54,7 +55,8 @@ function ExamForm({ exam }) {
     // Prevent labels from overlapping with input when exam loads: InputLabelProps={{ shrink: patientId ? true : false }}
     return (
         <form onSubmit={handleSubmit}>
-            <FormControl >
+            <FormControl fullWidth={true}>
+                <p>Exam: {examId}</p>
                 <TextField value={patientId} defaultValue={exam.patientId}
                     onChange={e => setPatientId(e.target.value)}
                     InputLabelProps={{ shrink: patientId ? true : false }}
