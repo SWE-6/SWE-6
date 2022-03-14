@@ -14,7 +14,6 @@ const ITEM_UPDATE = '/item/update/:id';
 const ADMIN = "/admin";
 
 const CREATE_EXAM = "/new/exam";
-const EDIT_EXAM = "/edit/patient/:patientId/exam/:examId"
 
 export const routes = {
   HOME,
@@ -28,5 +27,4 @@ export const routes = {
   //
   ADMIN,
   CREATE_EXAM,
-  EDIT_EXAM
 };

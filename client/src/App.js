@@ -13,7 +13,7 @@ import './styles/App.css';
 import { NavBar, Welcome } from './components';
 
 // Pages
-import { Items, Admin, CreateExam, EditExam } from './pages';
+import { Items, Admin, CreateExam } from './pages';
 
 class App extends Component {
   render() {
@@ -30,7 +30,6 @@ class App extends Component {
 
         <Route exact path={routes.ADMIN} component={Admin}/>
         <Route exact path={routes.CREATE_EXAM} component={CreateExam}/>
-        <Route path={routes.EDIT_EXAM} component={EditExam}/>
 
       </Switch>
     );

@@ -1,5 +1,5 @@
 import { Grid } from "@material-ui/core";
-import React, { Component, useState } from "react";
+import React from "react";
 import ExamForm from "./ExamForm";
 import PatientForm from "./PatientForm";
 
@@ -29,11 +29,11 @@ function CreateExam() {
     }
 
     return (
-        <Grid container>
-            <Grid itex xs={6}>
+        <Grid container justifyContent={"space-evenly"}  >
+            <Grid item xs={4}>
                 <PatientForm patient={patient} />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={4}>
                 <ExamForm exam={exam} />
             </Grid>
         </Grid>

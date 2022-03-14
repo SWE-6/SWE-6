@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-import { FormControl, TextField, Button, Grid } from "@material-ui/core";
+import { FormControl, TextField, Button } from "@material-ui/core";
 import apis from '../api';
 
 
@@ -56,7 +56,8 @@ function ExamForm({ exam }) {
     return (
         <form onSubmit={handleSubmit}>
             <FormControl fullWidth={true}>
-                <p>Exam: {examId}</p>
+                <Button variant="contained" color="primary" type="submit">Submit Exam</Button>
+
                 <TextField value={patientId} defaultValue={exam.patientId}
                     onChange={e => setPatientId(e.target.value)}
                     InputLabelProps={{ shrink: patientId ? true : false }}
@@ -85,10 +86,11 @@ function ExamForm({ exam }) {
                 <TextField value={studyModality} defaultValue={exam.studyModality}
                     onChange={e => setStudyModality(e.target.value)}
                     InputLabelProps={{ shrink: studyModality ? true : false }}
-                    name="studyModality" label="Study Modality" margin="normal" />
+                    name="studyModality" label="Study Modality" margin="normal" variant="outlined" />
 
-                <TextField value={oxygenAtImgStudy} type="number" defaultValue={exam.oxygenAtImgStudy}
+                <TextField value={oxygenAtImgStudy} defaultValue={exam.oxygenAtImgStudy}
                     onChange={e => setOxygenAtImgStudy(e.target.value)}
+                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                     InputLabelProps={{ shrink: oxygenAtImgStudy ? true : false }}
                     name="oxygenAtImgStudy" label="Oxygen at Time of Study" margin="normal" variant="outlined" />
 
@@ -100,9 +102,8 @@ function ExamForm({ exam }) {
                 <TextField value={pngFilename} defaultValue={exam.pngFilename}
                     onChange={e => setPngFilename(e.target.value)}
                     InputLabelProps={{ shrink: pngFilename ? true : false }}
-                    name="pngFilename" label="Image" margin="normal" variant="outlined" />
+                    name="pngFilename" label="Image URL" margin="normal" variant="outlined" />
 
-                <Button variant="contained" color="primary" type="submit">Submit Exam</Button>
             </FormControl>
         </form>
 

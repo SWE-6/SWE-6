@@ -133,7 +133,8 @@ function PatientForm({ patient }) {
     return (
         <form onSubmit={handleSubmit}>
             <FormControl fullWidth={true}>
-                <p>Patient: {patient.id}</p>
+                <Button variant="contained" color="primary" type="submit" onClick={handleSubmit}>Submit Patient</Button>
+
                 <TextField value={age} defaultValue={patient.age} required={true} type="number"
                     onChange={e => setAge(e.target.value)}
                     InputLabelProps={{ shrink: age ? true : false }}
@@ -156,8 +157,9 @@ function PatientForm({ patient }) {
 
                 <TextField value={bmi} defaultValue={patient.bmi} required={true} type="number"
                     onChange={e => setBmi(e.target.value)}
+                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]' }}
                     InputLabelProps={{ shrink: bmi ? true : false }}
-                    name="bmi" label="BMI" margin="normal" />
+                    name="bmi" label="BMI" margin="normal" variant="outlined" />
 
                 <TextField value={weight} type="number" defaultValue={patient.weight} required={true}
                     onChange={e => setWeight(e.target.value)}
@@ -168,6 +170,16 @@ function PatientForm({ patient }) {
                     onChange={e => setHeight(e.target.value)}
                     InputLabelProps={{ shrink: height ? true : false }}
                     name="height" label="Height" margin="normal" variant="outlined" />
+
+                <TextField value={numOfIcuAdmits} defaultValue={patient.numOfIcuAdmits} required={true}
+                    onChange={e => setNumOfIcuAdmits(e.target.value)}
+                    InputLabelProps={{ shrink: numOfIcuAdmits ? true : false }}
+                    name="tuberculosis" label="Number of ICU Admits" margin="normal" variant="outlined" />
+
+                <TextField value={mortality} defaultValue={patient.mortality} required={true}
+                    onChange={e => setMortality(e.target.value)}
+                    InputLabelProps={{ shrink: mortality ? true : false }}
+                    name="tuberculosis" label="Mortality" margin="normal" variant="outlined" />
 
                 <TextField value={tuberculosis} defaultValue={patient.tuberculosis}
                     onChange={e => setTuberculosis(e.target.value)}
@@ -274,17 +286,6 @@ function PatientForm({ patient }) {
                     InputLabelProps={{ shrink: icuAdmittance ? true : false }}
                     name="tuberculosis" label="ICU Admittance" margin="normal" variant="outlined" />
 
-                <TextField value={numOfIcuAdmits} defaultValue={patient.numOfIcuAdmits} required={true}
-                    onChange={e => setNumOfIcuAdmits(e.target.value)}
-                    InputLabelProps={{ shrink: numOfIcuAdmits ? true : false }}
-                    name="tuberculosis" label="Number of ICU Admits" margin="normal" variant="outlined" />
-
-                <TextField value={mortality} defaultValue={patient.mortality} required={true}
-                    onChange={e => setMortality(e.target.value)}
-                    InputLabelProps={{ shrink: mortality ? true : false }}
-                    name="tuberculosis" label="Mortality" margin="normal" variant="outlined" />
-
-                <Button variant="contained" color="primary" type="submit" onClick={handleSubmit}>Submit Patient</Button>
             </FormControl>
         </form>
 
