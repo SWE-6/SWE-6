@@ -110,4 +110,4 @@ function ExamForm({ exam }) {
     )
 }
 
-export default ExamForm
+export default ExamForm;

@@ -5,7 +5,7 @@
 */
 
 import React, { useEffect, useState } from "react";
-import apis from "../../api";
+import api from "../../api";
 
 import MaUTable from "@material-ui/core/Table";
 import { TableCell, TableRow, } from "@material-ui/core";
