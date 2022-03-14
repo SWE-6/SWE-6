@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-import { FormControl, TextField, Button, InputLabel } from "@material-ui/core";
+import { FormControl, TextField, Button, Grid } from "@material-ui/core";
 import api from '../api';
 
 
@@ -29,7 +29,6 @@ function ExamForm({ exam }) {
         api.insertExam(exam)
             .then(res => {
                 console.log(res)
-                alert(res)
             })
             .catch(err => console.error("Error in ExamForm: ", err))
         e.preventDefault()
@@ -52,37 +51,55 @@ function ExamForm({ exam }) {
             })
             .catch(err => console.log(err))
     }, [exam])
-    // Prevent labels from overlapping with input when exams load: InputLabelProps={{ shrink: patientId ? true : false }}
+    // Prevent labels from overlapping with input when exam loads: InputLabelProps={{ shrink: patientId ? true : false }}
     return (
         <form onSubmit={handleSubmit}>
-            <FormControl>
-                
-                <TextField InputLabelProps={{ shrink: patientId ? true : false }} value={patientId} defaultValue={exam.patientId}
-                    onChange={e => setPatientId(e.target.value)} variant="outlined" name="patientId" label="Patient ID" />
-                
-                <TextField InputLabelProps={{ shrink: examId ? true : false }} value={examId} defaultValue={exam.examId}
-                    onChange={e => setExamId(e.target.value)} variant="outlined" name="examId" label="Exam ID" />
-                
-                <TextField InputLabelProps={{ shrink: daysToImgStudy ? true : false }} value={daysToImgStudy} type="number" defaultValue={exam.daysToImgStudy}
-                    onChange={e => setDaysToImgStudy(e.target.value)} variant="outlined" name="daysToImgStudy" label="Days To Image Study" />
-                
-                <TextField InputLabelProps={{ shrink: hoursToImgStudy ? true : false }} value={hoursToImgStudy} type="number" defaultValue={exam.hoursToImgStudy}
-                    onChange={e => setHoursToImgStudy(e.target.value)} variant="outlined" name="hoursToImgStudy" label="Hours To Image Study" />
-                
-                <TextField InputLabelProps={{ shrink: imgDescription ? true : false }} value={imgDescription} defaultValue={exam.imgDescription}
-                    onChange={e => setImgDescription(e.target.value)} variant="outlined" name="imgDescription" label="Image Description" />
-                
-                <TextField InputLabelProps={{ shrink: studyModality ? true : false }} value={studyModality} defaultValue={exam.studyModality}
-                    onChange={e => setStudyModality(e.target.value)} variant="outlined" name="studyModality" label="Study Modality" />
-                
-                <TextField InputLabelProps={{ shrink: oxygenAtImgStudy ? true : false }} value={oxygenAtImgStudy} type="number" defaultValue={exam.oxygenAtImgStudy}
-                    onChange={e => setOxygenAtImgStudy(e.target.value)} variant="outlined" name="oxygenAtImgStudy" label="Oxygen at Time of Study" />
-                
-                <TextField InputLabelProps={{ shrink: keyFindings ? true : false }} value={keyFindings} defaultValue={exam.keyFindings}
-                    onChange={e => setKeyFindings(e.target.value)} variant="outlined" name="keyFindings" label="Key Findings" />
-                
-                <TextField InputLabelProps={{ shrink: pngFilename ? true : false }} value={pngFilename} defaultValue={exam.pngFilename}
-                    onChange={e => setPngFilename(e.target.value)} variant="outlined" name="pngFilename" label="Image" />
+            <FormControl >
+                <TextField value={patientId} defaultValue={exam.patientId}
+                    onChange={e => setPatientId(e.target.value)}
+                    InputLabelProps={{ shrink: patientId ? true : false }}
+                    name="patientId" label="Patient ID" margin="normal" variant="outlined" />
+
+                <TextField value={examId} defaultValue={exam.examId}
+                    onChange={e => setExamId(e.target.value)}
+                    InputLabelProps={{ shrink: examId ? true : false }}
+                    name="examId" label="Exam ID" margin="normal" variant="outlined" />
+
+                <TextField value={daysToImgStudy} type="number" defaultValue={exam.daysToImgStudy}
+                    onChange={e => setDaysToImgStudy(e.target.value)}
+                    InputLabelProps={{ shrink: daysToImgStudy ? true : false }}
+                    name="daysToImgStudy" label="Days To Image Study" margin="normal" variant="outlined" />
+
+                <TextField value={hoursToImgStudy} type="number" defaultValue={exam.hoursToImgStudy}
+                    onChange={e => setHoursToImgStudy(e.target.value)}
+                    InputLabelProps={{ shrink: hoursToImgStudy ? true : false }}
+                    name="hoursToImgStudy" label="Hours To Image Study" margin="normal" variant="outlined" />
+
+                <TextField value={imgDescription} defaultValue={exam.imgDescription}
+                    onChange={e => setImgDescription(e.target.value)}
+                    InputLabelProps={{ shrink: imgDescription ? true : false }}
+                    name="imgDescription" label="Image Description" margin="normal" variant="outlined" />
+
+                <TextField value={studyModality} defaultValue={exam.studyModality}
+                    onChange={e => setStudyModality(e.target.value)}
+                    InputLabelProps={{ shrink: studyModality ? true : false }}
+                    name="studyModality" label="Study Modality" margin="normal" />
+
+                <TextField value={oxygenAtImgStudy} type="number" defaultValue={exam.oxygenAtImgStudy}
+                    onChange={e => setOxygenAtImgStudy(e.target.value)}
+                    InputLabelProps={{ shrink: oxygenAtImgStudy ? true : false }}
+                    name="oxygenAtImgStudy" label="Oxygen at Time of Study" margin="normal" variant="outlined" />
+
+                <TextField value={keyFindings} defaultValue={exam.keyFindings}
+                    onChange={e => setKeyFindings(e.target.value)}
+                    InputLabelProps={{ shrink: keyFindings ? true : false }}
+                    name="keyFindings" label="Key Findings" margin="normal" variant="outlined" />
+
+                <TextField value={pngFilename} defaultValue={exam.pngFilename}
+                    onChange={e => setPngFilename(e.target.value)}
+                    InputLabelProps={{ shrink: pngFilename ? true : false }}
+                    name="pngFilename" label="Image" margin="normal" variant="outlined" />
+
                 <Button variant="contained" color="primary" type="submit">Submit Exam</Button>
             </FormControl>
         </form>
