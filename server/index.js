@@ -6,6 +6,7 @@ const cors = require('cors');
 const db = require('./db');
 const examRouter = require('./routes/exams-router');
 const patientRouter = require('./routes/patients-router');
+const geninfoRouter= require('./routes/geninfo-router')
 const app = express();
 const apiPort = 3000;
 
@@ -19,11 +20,11 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-app.use('/api/exams',examRouter);
-app.use('/api/patients',patientRouter);
+app.use('/api',examRouter);
+app.use('/api',patientRouter);
+app.use('/api',geninfoRouter);
 
 app.listen(apiPort, () => {
     console.log(`[Hack.Diversity React Template] - Server running on port ${apiPort}`)
 })
 
-module.exports ={examRouter,patientRouter}

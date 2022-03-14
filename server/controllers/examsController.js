@@ -40,7 +40,9 @@ getExamsOfPatient = asyncHandler( async (req, res) =>
 */
 getExamByID = asyncHandler( async (req, res) =>
 {
-  const exam = await exams.find({_id: req.params["id"]});
+  let id = req.params.id;
+  let trueId = new mongoose.Types.ObjectId(id);
+  const exam = await exams.find({_id: trueId});
 
   if (!exam) //error handeling
   {
@@ -55,14 +57,15 @@ getExamByID = asyncHandler( async (req, res) =>
 */
 createExam = asyncHandler( async (req, res) =>
 {
-  const body = req.body;
+  let body = req.body;
   if (!body) //exception hadeling for body
   {
     res.status(400);
     throw new Error("Please, define a body");
   }
+  const newId = mongoose.Types.ObjectId();
+  body = {...body, _id: newId}; //add new property to body
   const newExam = await exams.create(body);
-
   res.status(200).json(newExam);
 });
 
@@ -71,13 +74,15 @@ createExam = asyncHandler( async (req, res) =>
 updateExam = asyncHandler( async (req, res) =>
 {
   console.log(req.params);
-  const exam = await exams.find({ _id: req.params["id"], patientId: req.params["patientId"] }); //finding the exam:
+  const id = req.params.id;
+  const trueId = mongoose.Types.ObjectId(id);
+  const exam = await exams.find({ _id: trueId }); //finding the exam:
   if (!exam) //checking if exam was obtained
   {
     res.status(400);
     throw new Error("Patient was not found");
   }
-  const updatedExam = await exams.findByIdAndUpdate(req.params["id"], req.body, {new: true});
+  const updatedExam = await exams.findByIdAndUpdate(trueId, req.body, {new: true});
 
   res.status(200).json(updatedExam);
 });
@@ -87,17 +92,23 @@ updateExam = asyncHandler( async (req, res) =>
 deleteExam = asyncHandler( async (req, res) =>
 {
   //find exam before attempting to delete
-  const exam = await exams.findById(req.params["id"]);
+  const id = req.params.id;
+  const trueId = mongoose.Types.ObjectId(id);
+  const exam = await exams.find({_id: trueId});
   if (!exam)
   {
-    rest.status(400);
-    throw new Error("Patient not found");
+    res.status(400);
+    throw new Error("Exam not found");
+  }
+  else {
+    console.log("found");
   }
 
-  await exams.findOneAndDelete({_id: req.params.id}); //Did work
+  await exams.findOneAndDelete({_id: trueId}); //Did work
 
   res.status(200).json({_id: req.params["id"]}); //just return the id back
 });
+
 
 module.exports = {
   

@@ -12,6 +12,15 @@ getPatients = asyncHandler( async (req, res) => {
   res.status(200).json(allPatients);
 });
 
+//CONTROLLERS for patients
+
+/**@desc gets all the patients from the database
+*/
+getPatients = asyncHandler( async (req, res) => {
+  const allPatients = await patients.find({}); //passed empty object returns all member of the set
+  res.status(200).json(allPatients);
+});
+
 /**@desc returns patients that correspond to given id
 */
 getPatientByID = asyncHandler( async (req, res) => {
