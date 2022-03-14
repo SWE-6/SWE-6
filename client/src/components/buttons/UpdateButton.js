@@ -28,7 +28,7 @@ class UpdateButton extends Component {
   render() {
     return (
       //TODO: Link to the Update page
-      <Link to={`/edit/exam/${this.props.exam}`}>
+      <Link to={`/edit/exam/${this.props.exam}`} exam={this.props.exam} id={this.props.id}>
         <Update>Update</Update>
       </Link>
     );
