@@ -15,7 +15,6 @@ const Nav = styled.nav.attrs({
   className: 'navbar navbar-expand-lg navbar-dark bg-dark',
 })`
   margin-bottom: 20px;
-
   @media screen and (min-width: 992px) {
     padding: 0.5em 25%;
   }
@@ -23,15 +22,10 @@ const Nav = styled.nav.attrs({
 
 const navBarItems = [
   {
-    name: 'Items',
-    toPathname: '/items',
+    name: 'Admin',
+    toPathname: '/admin',
     className: 'nav-link',
-  },
-  {
-    name: 'Create Item',
-    toPathname: '/item/create',
-    className: 'nav-link',
-  },
+  }
 ];
 
 class NavBar extends Component {
