@@ -4,6 +4,7 @@ import CreateExam from './CreateExam'
 import Exams from './Exam';
 import ExamDetails from './ExamDetails';
 import PatientID from './PatientID';
+// import Patient from './Patient';
 
 
 export {
@@ -13,5 +14,6 @@ export {
      Exams,
     ExamDetails, 
      PatientID,
+    //  Patient,
   
 };

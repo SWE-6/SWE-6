@@ -1,22 +1,27 @@
-/*  Sierra Obi
-*   Components to display all of the information for one patient.
-*   03-13-2022
-*/
+/**
+ * Sierra Obi
+ * 03-13-2022
+ * 
+ * Components to display all of the information for one patient. This includes:
+ * patient ID, number of exams the patient had, demographics 
+ * (eg. age, sex, race, zip, bmi, weight, height) and medical conditions
+ */
 
 import React, { Component } from "react";
+import PatientInfo from "../components/patient/PatientInfo";
+import PatientTable from "../components/patient/PatientTable";
 
-/**
- * What's Included
- * patient ID, number of exams the patient had,
- * demographics (eg. age, sex, race, zip, bmi, weight, height)
- * and medical conditions
- */
-class Patient extends Component {
-    // TODO - organize all of the patient properties
-    // TODO - add styles
+
+class Patient extends Component 
+{
     render ()
     {
-        return(null);
+        return (
+            <>
+                <PatientInfo/>
+                <PatientTable/>
+            </>
+        );
     }
 
 }
