@@ -13,7 +13,8 @@ import './styles/App.css';
 import { NavBar, Welcome } from './components';
 
 // Pages
-import { ItemInsert, Items, ItemUpdate, PatientsList } from './pages';
+import { Items, Admin, CreateExam, EditExam, ExamDetails, Exams, PatientID, } from './pages';
+import PatientInfo from './components/admin/update/patientInfo';
 
 class App extends Component {
   render() {
@@ -21,14 +22,21 @@ class App extends Component {
     const publicViews = (
       <Switch>
         <Route exact path={routes.HOME}>
-          <Redirect to={routes.ITEMS} />
+          <Redirect to={routes.EXAMS} />
         </Route>
-        <Route exact path={routes.ITEM_UPDATE} component={ItemUpdate} />
         <Route exact path={routes.HOME} component={Welcome} />
-        <Route exact path={routes.ITEMS} component={PatientsList} />
-        <Route exact path={`${routes.ITEMS}/items-plain`} component={Items} />
-        <Route exact path={`${routes.ITEMS}/react-table-v6`} component={Items} />
-        <Route exact path={routes.ITEM_INSERT} component={ItemInsert} />
+        <Route exact path={routes.HOME} component={Items} />
+        <Route exact path={`${routes.HOME}/items-plain`} component={Items} />
+        <Route exact path={`${routes.HOME}/react-table-v6`} component={Items} />
+
+        <Route exact path={routes.ADMIN} component={Admin}/>
+        <Route exact path={routes.CREATE_EXAM} component={CreateExam}/>
+      
+        <Route exact path={routes.EXAMS} component={Exams} />
+        <Route exact path={routes.ITEM} component={ExamDetails} />
+        <Route exact path={routes.PATIENt_EXAM} component={PatientID} />
+        <Route exact path={routes.ITEM_UPDATE} component={PatientInfo} />
+       
       </Switch>
     );
 
